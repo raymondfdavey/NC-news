@@ -3,10 +3,12 @@ import axios from "axios";
 import TopicDropper from "./TopicDropper";
 import ArticleTile from "./ArticleTile";
 import SortByDropper from "./SortByDropper";
+import ErrorPage from "./ErrorPage";
 
 class TopicsPage extends Component {
-  state = { articles: [], sortBy: "comment_count" };
+  state = { articles: [], sortBy: "comment_count", err: null };
   render() {
+    if (this.state.err) return <ErrorPage err={this.state.err} />;
     return (
       <>
         <TopicDropper />
@@ -32,7 +34,8 @@ class TopicsPage extends Component {
       )
       .then(({ data: { articles } }) => {
         this.setState({ articles: articles });
-      });
+      })
+      .catch(err => this.setState({ err: err }));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -43,7 +46,8 @@ class TopicsPage extends Component {
         )
         .then(({ data: { articles } }) => {
           this.setState({ articles: articles });
-        });
+        })
+        .catch(err => this.setState({ err: err }));
     }
     if (prevState.sortBy !== this.state.sortBy) {
       axios
@@ -55,7 +59,8 @@ class TopicsPage extends Component {
         )
         .then(({ data: { articles } }) => {
           this.setState({ articles: articles });
-        });
+        })
+        .catch(err => this.setState({ err: err }));
     }
   }
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import SortByDropper from "./SortByDropper";
 import ArticleTile from "./ArticleTile";
 import OrderDropper from "./OrderDropper";
+import ErrorPage from "./ErrorPage";
 
 // import TopicDropper from "./TopicDropper";
 // import { Router } from "@reach/router";
@@ -14,9 +15,11 @@ class Articles extends Component {
     articles: [],
     sortBy: "comment_count",
     isLoading: "true",
-    order: "desc"
+    order: "desc",
+    err: null
   };
   render() {
+    if (this.state.err) return <ErrorPage err={this.state.err} />;
     return (
       <>
         <div className="dopperHolder">
@@ -37,6 +40,14 @@ class Articles extends Component {
     );
   }
 
+  // componentDidMount() {
+  //   this.fetchArticles().then(({ data: { articles } }) =>
+  //     this.setState({ articles: articles })
+  //   );
+  // }
+  // chosenTopic = topic => {
+  //   this.setState({ topic: topic });
+  // };
   componentDidMount() {
     this.fetchArticles().then(({ data: { articles } }) =>
       this.setState({ articles: articles })
@@ -54,7 +65,7 @@ class Articles extends Component {
           "&order=" +
           this.state.order
       )
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ err: err }));
   };
 
   orderArticles = order => {
@@ -71,8 +82,6 @@ class Articles extends Component {
       );
     }
     if (prevState.order !== this.state.order) {
-      console.log("IN THE PRESTATE BIT");
-
       this.fetchArticles().then(({ data: { articles } }) =>
         this.setState({ articles: articles })
       );

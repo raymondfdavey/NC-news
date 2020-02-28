@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
+import ErrorPage from "./ErrorPage";
 
 class TopicDropper extends Component {
-  state = { topics: [] };
+  state = { topics: [], err: null };
   render() {
+    if (this.state.err) return <ErrorPage err={this.state.err} />;
     return (
       <div className="topicSelectorArea">
         <div className="topicSelector">

@@ -7,6 +7,7 @@ import Topics from "./components/Topics";
 import TopicsPage from "./components/TopicsPage";
 import Nav from "./components/Nav";
 import AuthorPage from "./components/AuthorPage";
+import ErrorPage from "./components/ErrorPage";
 
 //reformat vote so it's correct as per lecture
 //generalise some stuff
@@ -21,6 +22,7 @@ class App extends Component {
           <Nav />
         </div>
         <Router>
+          <ErrorPage default />
           <Articles path="/" />
           <Articles path="/articles" />
           <ArticlePage path="/articles/:article_id" />

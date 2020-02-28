@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import ArticleTile from "./ArticleTile";
+import ErrorPage from "./ErrorPage";
 
 class AuthorPage extends Component {
-  state = { articles: [] };
+  state = { articles: [], err: null };
   render() {
+    if (this.state.err) return <ErrorPage err={this.state.err} />;
     return (
       <>
         <h1>Articles by {this.props.author}</h1>
@@ -20,7 +22,9 @@ class AuthorPage extends Component {
   }
   componentDidMount() {
     api.fetchArticlesByParam(this.props.author).then(authorArticles => {
-      this.setState({ articles: authorArticles });
+      this.setState({ articles: authorArticles }).catch(err =>
+        this.setState({ err: err })
+      );
     });
   }
 }

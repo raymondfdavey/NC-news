@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { postCommentToDatabase } from "../api";
+import ErrorPage from "./ErrorPage";
 
 class CommentAdder extends Component {
-  state = { textInput: "", username: "jessjelly" };
+  state = { textInput: "", username: "jessjelly", err: null };
   render() {
+    if (this.state.err) return <ErrorPage err={this.state.err} />;
     return (
       <>
         <form className="postCommentForm" onSubmit={this.postComment}>
@@ -31,7 +33,8 @@ class CommentAdder extends Component {
       this.state.username
     )
       .then(({ data: { comment } }) => this.props.updateComments(comment))
-      .then(this.setState({ textInput: "" }));
+      .then(this.setState({ textInput: "" }))
+      .catch(err => this.setState({ err: err }));
   };
 }
 

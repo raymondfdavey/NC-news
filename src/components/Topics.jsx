@@ -13,6 +13,9 @@ class Topics extends Component {
     return (
       <>
         <TopicDropper chosenTopic={this.chosenTopic} />
+        {!this.state.articles.length ? (
+          <p>Articles for your chosen topic will appear here</p>
+        ) : null}
       </>
     );
   }
