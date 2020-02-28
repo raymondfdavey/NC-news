@@ -24,7 +24,7 @@ class ArticleTile extends Component {
             <Link to={`/articles/${article_id}`}>{title}</Link>
           </li>
           <div className="articleDetails">
-            {window.location.href.length > 30 ? (
+            {window.location.href.length > 55 ? (
               <li>{body}</li>
             ) : (
               <li>{`${body.split(".")[0].toString()}...`}</li>
