@@ -9,16 +9,17 @@ class TopicsPage extends Component {
   render() {
     return (
       <>
-        <TopicDropper />;
+        <TopicDropper />
         <SortByDropper sortArticles={this.sortArticles} />
+        <h2>Topic: {this.props.topic}</h2>
         {!this.state.articles.length ? (
-          <h1>CHOOSE A TOPIC</h1>
+          <h1>loading</h1>
         ) : (
-          this.state.articles.map(article => {
-            console.log(article, "IN THE MAP");
-
-            return <ArticleTile key={article.article_id} article={article} />;
-          })
+          <div className="articleContainer">
+            {this.state.articles.map(article => {
+              return <ArticleTile key={article.article_id} article={article} />;
+            })}
+          </div>
         )}
       </>
     );

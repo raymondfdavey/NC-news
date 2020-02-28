@@ -41,9 +41,6 @@ export const postCommentToDatabase = (article_id, input, username) => {
     username: username,
     body: input
   };
-  console.log(patchObject);
-  console.log(`${commonStart}articles/${article_id}/comments`);
-
   return axios
     .post(`${commonStart}articles/${article_id}/comments`, patchObject)
     .catch(err => console.dir(err));

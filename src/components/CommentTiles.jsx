@@ -9,21 +9,25 @@ class CommentTiles extends Component {
     const { comment_id, author, created_at, body } = this.props.comment;
     return (
       <>
-        <ul key={comment_id}>
-          <li>Comment ID: {comment_id}</li>
-          <Link to={`/author/${author}`}>Author: {author}</Link>
-          <li>Comment: {body}</li>
-          <li>Time of Comment: {created_at}</li>
-          <li>No. of Votes: {this.state.votes}</li>
-          <Vote
-            changeCommentVotes={this.changeCommentVotes}
-            comment_id={comment_id}
-          />
-          {this.props.username === author ? (
-            <button onClick={() => this.deleteComment(comment_id)}>
-              Delete Comment
-            </button>
-          ) : null}
+        <ul className="commentTile" key={comment_id}>
+          <Link to={`/author/${author}`}>{author}</Link>
+          <li>{body}</li>
+          <li>{new Date(created_at).toDateString()}</li>
+          <li>Votes: {this.state.votes}</li>
+          <div className="buttonContainer">
+            <Vote
+              changeCommentVotes={this.changeCommentVotes}
+              comment_id={comment_id}
+            />
+            {this.props.username === author ? (
+              <button
+                className="deleteButton"
+                onClick={() => this.deleteComment(comment_id)}
+              >
+                Delete Your Comment
+              </button>
+            ) : null}
+          </div>
         </ul>
       </>
     );

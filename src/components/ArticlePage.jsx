@@ -13,26 +13,31 @@ class ArticlePage extends Component {
   render() {
     return (
       <>
-        <h1>Article and Comments</h1>
+        {console.log(this.props.uri, "IN HEREREE")}
         {this.state.comments.length &&
         Object.keys(this.state.article).length ? (
           <>
-            <ArticleTile article={this.state.article} />
-            <CommentAdder
-              updateComments={this.updateComments}
-              article_id={this.state.article.article_id}
-            />
-            {this.state.comments.map(singleComment => {
-              return (
-                <CommentTiles
-                  removeComment={this.removeComment}
-                  username={this.state.username}
-                  key={singleComment.comment_id}
-                  comment={singleComment}
-                />
-              );
-            })}
-            />
+            <div className="holdArticleAndComment">
+              <ArticleTile article={this.state.article} />
+              <CommentAdder
+                updateComments={this.updateComments}
+                article_id={this.state.article.article_id}
+              />
+            </div>
+            <div className="commentContainer">
+              <h3>Comments</h3>
+              {this.state.comments.map(singleComment => {
+                return (
+                  <CommentTiles
+                    removeComment={this.removeComment}
+                    username={this.state.username}
+                    key={singleComment.comment_id}
+                    comment={singleComment}
+                  />
+                );
+              })}
+              />
+            </div>
           </>
         ) : (
           <p>loading...</p>

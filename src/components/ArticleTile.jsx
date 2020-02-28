@@ -7,7 +7,6 @@ class ArticleTile extends Component {
   state = { votes: this.props.article.votes };
   render() {
     const { article } = this.props;
-
     const {
       title,
       body,
@@ -20,32 +19,37 @@ class ArticleTile extends Component {
     } = article;
     return (
       <>
-        <ul key={article_id}>
-          <li>
-            <h3>
-              <Link to={`/articles/${article_id}`}>Title: {title}</Link>
-            </h3>
+        <ul className="articleTile" key={article_id}>
+          <li className="articleTileTitle">
+            <Link to={`/articles/${article_id}`}>{title}</Link>
           </li>
-          <li>Article: {body}</li>
-          <li>Article ID: {article_id}</li>
-          <li>
-            <Link to={`/author/${author}`}>Author: {author}</Link>
-          </li>
-          <li>
-            <Link to={`/topics/${topic}/articles`}>Topic: {topic}</Link>
-          </li>
-          <li>
-            {" "}
-            <Link to={`/articles/${article_id}`}>
-              No. of Comments: {comment_count}
-            </Link>
-          </li>
-          <li>Date Created: {created_at}</li>
-          <li>No. of Votes: {this.state.votes}</li>
+          <div className="articleDetails">
+            {window.location.href.length > 30 ? (
+              <li>{body}</li>
+            ) : (
+              <li>{`${body.split(".")[0].toString()}...`}</li>
+            )}
+            <br />
+            <li>
+              <Link to={`/author/${author}`}>by: {author}</Link>
+            </li>
+            <li>{new Date(created_at).toDateString()}</li>
+            <li>
+              <Link to={`/topics/${topic}/articles`}>topic: {topic}</Link>
+            </li>
+            <li>
+              {" "}
+              <Link to={`/articles/${article_id}`}>
+                comments: {comment_count}
+              </Link>
+            </li>
+            <li>votes: {this.state.votes}</li>
+          </div>
           <Vote
             changeVotes={this.changeVotes}
             votes={votes}
             article_id={article_id}
+            updatingVotes={this.state.votes}
           />
         </ul>
       </>

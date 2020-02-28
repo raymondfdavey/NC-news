@@ -6,25 +6,30 @@ class TopicDropper extends Component {
   state = { topics: [] };
   render() {
     return (
-      <>
-        {this.state.topics.length ? (
-          <select
-            id="topics"
-            name="topics"
-            onChange={event => {
-              navigate(`/topics/${event.target.value}/articles`);
-            }}
-          >
-            {this.state.topics.map(topic => {
-              return (
-                <option key={topic} value={topic}>
-                  {topic}
-                </option>
-              );
-            })}
-          </select>
-        ) : null}
-      </>
+      <div className="topicSelectorArea">
+        <div className="topicSelector">
+          {this.state.topics.length ? (
+            <select
+              id="topics"
+              name="topics"
+              onChange={event => {
+                navigate(`/topics/${event.target.value}/articles`);
+              }}
+            >
+              <option value="" disabled selected hidden>
+                Choose a Topic
+              </option>
+              {this.state.topics.map(topic => {
+                return (
+                  <option key={topic} value={topic}>
+                    {topic}
+                  </option>
+                );
+              })}
+            </select>
+          ) : null}
+        </div>
+      </div>
     );
   }
   componentDidMount() {

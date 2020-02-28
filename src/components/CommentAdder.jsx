@@ -6,13 +6,15 @@ class CommentAdder extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.postComment}>
-          <input
+        <form className="postCommentForm" onSubmit={this.postComment}>
+          <button className="postCommentButton">Leave a comment</button>
+          <textarea
+            className="commentInputBox"
             type="text"
+            placeholder="enter your comment"
             value={this.state.textInput}
             onChange={this.handleChange}
-          ></input>
-          <button>Post Comment</button>
+          ></textarea>
         </form>
       </>
     );

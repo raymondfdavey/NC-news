@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
+body {
+  font-size: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+}
+
+a:hover {
+  color: red;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+  font-size: 2.5em;
+  border-bottom: black solid 0.4vh;
+}
+
+header p {
+  font-size: 0.5em;
+  align-self: flex-end;
+  padding-right: 5vw;
+}
+
+header h1 {
+  padding-left: 2vw;
+}
+
+nav {
+  padding: 0.5em;
+  display: flex;
+  height: 5vh;
+  font-size: 1.5em;
+  justify-content: space-around;
+  border-bottom: black solid 0.4vh;
+}
+.orderSelectorArea {
+  margin-top: 10px;
+  font-size: 13px;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.orderSelectorArea,
+.orderSelector,
+select {
+  background: transparent;
+  line-height: 1;
+  padding: 0;
+  border-radius: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  font-size: 1.2em;
+}
+
+.topicSelectorArea {
+}
+.sortBySelectorArea,
+.sortBySelector {
+  width: 50%;
+  background-position: 80% center;
+}
+.topicSelectorArea,
+.topicSelector {
+  width: 100%;
+  background-position: 80% center;
+}
+
+.topicSelectorArea,
+.topicSelector,
+select {
+  background: transparent;
+  line-height: 1;
+  padding: 0;
+  border-radius: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  font-size: 1.2em;
+}
+
+.sortBySelectorArea {
+  margin-top: 5px;
+  font-size: 13px;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sortBySelectorArea,
+.sortBySelector,
+select {
+  background: transparent;
+  line-height: 1;
+
+  padding: 0;
+  border-radius: 0;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  font-size: 1.2em;
+}
+
+.articleContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.articleTile {
+  box-shadow: 2.5px 5px;
+  width: 80%;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+  border: solid;
+  border-radius: 10px;
+  background: rgba(171, 190, 207, 0.1);
+}
+
+.articleTileTitle {
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+}
+
+.articleDetails {
+  padding-left: 3em;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.voteButtons {
+  display: flex;
+  padding-left: 3em;
+  justify-content: space-around;
+}
+header p a {
+  color: red;
+}
+h3 {
+  padding-right: 2em;
+  font-size: 1.5em;
+}
+.commentTile {
+  box-shadow: 2.5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: solid green;
+  border-radius: 10px;
+
+  background: rgba(241, 156, 156, 0.1);
+  width: 90%;
+  list-style: none;
+  padding-right: 2em;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.deleteButton {
+  width: 20em;
+  background-color: rgba(255, 0, 0, 0.753);
+}
+
+.buttonContainer {
+  display: flex;
+}
+
+.postCommentForm {
+  width: 90%;
+  display: flex;
+
+  margin-top: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.postCommentButton {
+  font-size: 1.2em;
+  height: 2em;
+}
+
+.commentInputBox {
+  width: 80%;
+  height: 3em;
+}
+
+textarea {
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 650px) {
+  header {
+    font-size: 1em;
+  }
+  header p {
+    font-size: 1em;
+  }
+
+  nav {
+    font-size: 1em;
+  }
+}

@@ -6,8 +6,11 @@ const NavLink = props => (
     getProps={({ isCurrent }) => {
       return {
         style: {
-          backgroundColor: isCurrent && "red",
-          color: isCurrent && "white"
+          color: isCurrent && "red"
+          // "border-left": isCurrent && "solid black",
+          // "border-right": isCurrent && "solid black",
+          // "padding-left": isCurrent && "1em",
+          // "padding-right": isCurrent && "1em"
         }
       };
     }}
@@ -17,9 +20,10 @@ const NavLink = props => (
 function Nav(props) {
   return (
     <nav>
-      <NavLink to="/articles">Articles</NavLink>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/articles">Current Articles</NavLink>
       <NavLink to="/topics">Topics</NavLink>
-      <NavLink to="login">Login</NavLink>
+      <NavLink to="/authors">Contributors</NavLink>
     </nav>
   );
 }

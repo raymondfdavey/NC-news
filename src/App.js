@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-// import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import { Router } from "@reach/router";
 import ArticlePage from "./components/ArticlePage";
@@ -13,11 +12,14 @@ import AuthorPage from "./components/AuthorPage";
 //generalise some stuff
 
 class App extends Component {
+  state = { username: "jessjelly" };
   render() {
     return (
-      <div>
-        <Header />
-        <Nav />
+      <>
+        <div className="bannerArea">
+          <Header className="header" username={this.state.username} />
+          <Nav />
+        </div>
         <Router>
           <Articles path="/" />
           <Articles path="/articles" />
@@ -26,7 +28,7 @@ class App extends Component {
           <TopicsPage path="/topics/:topic/articles" />
           <AuthorPage path="/author/:author" />
         </Router>
-      </div>
+      </>
     );
   }
 }
