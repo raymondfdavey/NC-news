@@ -30,7 +30,7 @@ class TopicsPage extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://nc-news-rfd.herokuapp.com/articles?topic=" + this.props.topic
+        "https://news-of-the-north-server.herokuapp.com/articles?topic=" + this.props.topic
       )
       .then(({ data: { articles } }) => {
         this.setState({ articles: articles });
@@ -42,7 +42,7 @@ class TopicsPage extends Component {
     if (prevProps.topic !== this.props.topic) {
       axios
         .get(
-          "https://nc-news-rfd.herokuapp.com/articles?topic=" + this.props.topic
+          "https://news-of-the-north-server.herokuapp.com/articles?topic=" + this.props.topic
         )
         .then(({ data: { articles } }) => {
           this.setState({ articles: articles });
@@ -52,7 +52,7 @@ class TopicsPage extends Component {
     if (prevState.sortBy !== this.state.sortBy) {
       axios
         .get(
-          "https://nc-news-rfd.herokuapp.com/articles?topic=" +
+          "https://news-of-the-north-server.herokuapp.com/articles?topic=" +
             this.props.topic +
             "&sort_by=" +
             this.state.sortBy

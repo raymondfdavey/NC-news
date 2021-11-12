@@ -49,7 +49,7 @@ class ArticlePage extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://nc-news-rfd.herokuapp.com/articles/" + this.props.article_id
+        "https://news-of-the-north-server.herokuapp.com/articles/" + this.props.article_id
       )
       .then(({ data: { article } }) => {
         this.setState({ article: article });
@@ -57,7 +57,7 @@ class ArticlePage extends Component {
 
     axios
       .get(
-        "https://nc-news-rfd.herokuapp.com/articles/" +
+        "https://news-of-the-north-server.herokuapp.com/articles/" +
           this.props.article_id +
           "/comments?sort_by=created_at"
       )

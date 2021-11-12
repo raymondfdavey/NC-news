@@ -36,7 +36,7 @@ class TopicDropper extends Component {
   }
   componentDidMount() {
     axios
-      .get("https://nc-news-rfd.herokuapp.com/api/topics")
+      .get("https://news-of-the-north-server.herokuapp.com/api/topics")
       .then(({ data: { topics } }) => {
         const slugs = topics.map(topic => topic.slug);
         this.setState({ topics: slugs });

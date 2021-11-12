@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const commonStart = "https://nc-news-rfd.herokuapp.com/api/";
+const commonStart = "https://news-of-the-north-server.herokuapp.com/api/";
 
 export const fetchAllArticles = () => {
   return axios
-    .get("https://nc-news-rfd.herokuapp.com/articles/")
+    .get("https://news-of-the-north-server.herokuapp.com/articles/")
     .then(({ data: { articles } }) => {
       return articles;
     });
@@ -12,7 +12,7 @@ export const fetchAllArticles = () => {
 
 export const fetchArticlesByParam = author => {
   return axios
-    .get("https://nc-news-rfd.herokuapp.com/api/articles?author=" + author)
+    .get("https://news-of-the-north-server.herokuapp.com/api/articles?author=" + author)
     .then(({ data: { articles } }) => {
       return articles;
     });

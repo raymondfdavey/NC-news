@@ -60,7 +60,7 @@ class Articles extends Component {
   fetchArticles = () => {
     return axios
       .get(
-        "https://nc-news-rfd.herokuapp.com/api/articles?sort_by=" +
+        "https://news-of-the-north-server.herokuapp.com/api/articles?sort_by=" +
           this.state.sortBy +
           "&order=" +
           this.state.order
