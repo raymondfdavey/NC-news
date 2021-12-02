@@ -22,10 +22,10 @@ class App extends Component {
           <Header className="header" username={this.state.username} />
           <Nav />
         </div>
-        <Router basepath="http://raymondfdavey.github.io/NC-news">
+        <Router>
           <ErrorPage default />
-          <Articles path="/NC-news" />
-          <Articles path="/NC-news/articles" />
+          <Articles path="/" />
+          <Articles path="/articles" />
           <ArticlePage path="/articles/:article_id" />
           <Topics path="/topics" />
           <TopicsPage path="/topics/:topic/articles" />
