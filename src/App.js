@@ -23,7 +23,7 @@ class App extends Component {
         </div>
         <Router>
           <ErrorPage default />
-          <Articles path="/" />
+//           <Articles path="/" />
           <Articles path="/articles" />
           <ArticlePage path="/articles/:article_id" />
           <Topics path="/topics" />
