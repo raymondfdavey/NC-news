@@ -25,7 +25,7 @@ class App extends Component {
         <Router basepath="http://raymondfdavey.github.io/NC-news">
           <ErrorPage default />
           <Articles path="/NC-news" />
-          <Articles path="/articles" />
+          <Articles path="/NC-news/articles" />
           <ArticlePage path="/articles/:article_id" />
           <Topics path="/topics" />
           <TopicsPage path="/topics/:topic/articles" />
