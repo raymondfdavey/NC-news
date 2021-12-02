@@ -22,7 +22,7 @@ class App extends Component {
           <Header className="header" username={this.state.username} />
           <Nav />
         </div>
-        <Router basepath={process.env.PUBLIC_URL}>
+        <Router basepath="http://raymondfdavey.github.io/NC-news">
           <ErrorPage default />
           <Articles path="/" />
           <Articles path="/articles" />
