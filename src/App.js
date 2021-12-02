@@ -8,6 +8,7 @@ import TopicsPage from "./components/TopicsPage";
 import Nav from "./components/Nav";
 import AuthorPage from "./components/AuthorPage";
 import ErrorPage from "./components/ErrorPage";
+// import { HashRouter as baseRouter } from "react-router-dom";
 
 //reformat vote so it's correct as per lecture
 //generalise some stuff
@@ -21,9 +22,9 @@ class App extends Component {
           <Header className="header" username={this.state.username} />
           <Nav />
         </div>
-        <Router>
+        <Router basepath={process.env.PUBLIC_URL}>
           <ErrorPage default />
-//           <Articles path="/" />
+          <Articles path="/" />
           <Articles path="/articles" />
           <ArticlePage path="/articles/:article_id" />
           <Topics path="/topics" />
