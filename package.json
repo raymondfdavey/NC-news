@@ -2,6 +2,7 @@
   "name": "nc-news",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://raymondfdavey.github.io/NC-news/",
   "dependencies": {
     "@reach/router": "^1.3.1",
     "@testing-library/jest-dom": "^4.2.4",
